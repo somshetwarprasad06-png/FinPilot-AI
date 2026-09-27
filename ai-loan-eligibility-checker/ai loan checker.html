@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI-powered BFSI financial decision support platform." />
+  <title>FinPilot AI | BFSI Financial Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+
+  <header class="navbar glass">
+    <a class="brand" href="#home"><span class="brand-mark">F</span><span>FinPilot <b>AI</b></span></a>
+    <nav>
+      <a href="#loan">Loan</a>
+      <a href="#credit">Credit</a>
+      <a href="#emi">EMI</a>
+      <a href="#tips">AI Tips</a>
+    </nav>
+    <a class="btn btn-small btn-outline" href="#loan">Get Started</a>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow">AI-POWERED BFSI DECISION SUPPORT</span>
+        <h1>Make smarter financial decisions with <span>FinPilot AI.</span></h1>
+        <p>Check estimated loan eligibility, analyze credit score, calculate EMI, and explore personalized financial guidance from one responsive dashboard.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#loan">Check Eligibility <span>→</span></a>
+          <a class="btn btn-outline" href="#tools">Explore Tools</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ Instant calculations</span>
+          <span>✓ Responsive design</span>
+          <span>✓ Student project demo</span>
+        </div>
+      </div>
+      <div class="hero-card glass">
+        <div class="hero-card-top"><span>Financial Overview</span><span class="live-dot">● Demo</span></div>
+        <div class="score-ring"><div><strong id="heroScore">750</strong><small>Credit Score</small></div></div>
+        <div class="mini-grid">
+          <div><small>Estimated EMI</small><strong id="heroEmi">₹10,849</strong></div>
+          <div><small>Risk Level</small><strong class="success">Low</strong></div>
+        </div>
+        <div class="progress"><span style="width: 78%"></span></div>
+        <p class="muted">Improve financial readiness by keeping credit usage controlled and EMIs manageable.</p>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">FOUR CORE MODULES</span>
+        <h2>Everything you need in one place</h2>
+        <p>Each module is designed for fast, understandable financial analysis.</p>
+      </div>
+      <div class="feature-grid">
+        <a class="feature-card glass" href="#loan"><span class="icon">🏦</span><h3>Loan Eligibility</h3><p>Estimate eligibility using income, age, employment, credit score and existing obligations.</p></a>
+        <a class="feature-card glass" href="#credit"><span class="icon">📊</span><h3>Credit Analyzer</h3><p>Understand your entered credit score through a simple risk interpretation.</p></a>
+        <a class="feature-card glass" href="#emi"><span class="icon">🧮</span><h3>EMI Calculator</h3><p>Calculate monthly EMI, total interest and total repayment instantly.</p></a>
+        <a class="feature-card glass" href="#tips"><span class="icon">🤖</span><h3>AI Financial Tips</h3><p>Get guidance based on your financial situation. Claude integration comes in Step 2.</p></a>
+      </div>
+    </section>
+
+    <section id="loan" class="section tool-section">
+      <div class="section-heading"><span class="eyebrow">MODULE 01</span><h2>Loan Eligibility Checker</h2><p>This is an estimate for educational/project demonstration purposes, not a lending decision.</p></div>
+      <div class="tool-layout">
+        <form id="loanForm" class="glass form-card">
+          <div class="form-grid">
+            <label>Age<input id="age" type="number" min="18" max="70" placeholder="e.g. 25" required></label>
+            <label>Monthly Income (₹)<input id="income" type="number" min="0" placeholder="e.g. 50000" required></label>
+            <label>Credit Score<input id="loanCredit" type="number" min="300" max="900" placeholder="e.g. 750" required></label>
+            <label>Existing Monthly EMI (₹)<input id="existingEmi" type="number" min="0" value="0" required></label>
+            <label>Employment Type<select id="employment" required><option value="">Select</option><option>Salaried</option><option>Self-employed</option><option>Student</option><option>Other</option></select></label>
+            <label>Requested Loan (₹)<input id="loanAmount" type="number" min="1000" placeholder="e.g. 500000" required></label>
+          </div>
+          <button class="btn btn-primary full" type="submit">Analyze Eligibility</button>
+          <p id="loanError" class="error" aria-live="polite"></p>
+        </form>
+        <div id="loanResult" class="glass result-card">
+          <span class="result-icon">🏦</span><h3>Ready for analysis</h3>
+          <p>Enter your details and click Analyze Eligibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="credit" class="section tool-section">
+      <div class="section-heading"><span class="eyebrow">MODULE 02</span><h2>Credit Score Analyzer</h2><p>Enter a score from 300–900 to see a general educational interpretation.</p></div>
+      <div class="single-tool glass">
+        <div class="input-row"><label>Credit Score<input id="creditInput" type="number" min="300" max="900" value="750"></label><button id="creditBtn" class="btn btn-primary">Analyze Score</button></div>
+        <div id="creditResult" class="analysis-box"></div>
+      </div>
+    </section>
+
+    <section id="emi" class="section tool-section">
+      <div class="section-heading"><span class="eyebrow">MODULE 03</span><h2>EMI Calculator</h2><p>Use the standard reducing-balance EMI formula for an estimate.</p></div>
+      <div class="tool-layout">
+        <div class="glass form-card">
+          <div class="form-grid">
+            <label>Loan Amount (₹)<input id="emiPrincipal" type="number" min="1" value="500000"></label>
+            <label>Annual Interest (%)<input id="emiRate" type="number" min="0" step="0.01" value="10.5"></label>
+            <label>Tenure (Years)<input id="emiYears" type="number" min="1" max="30" value="5"></label>
+          </div>
+          <button id="emiBtn" class="btn btn-primary full">Calculate EMI</button>
+        </div>
+        <div id="emiResult" class="glass result-card"></div>
+      </div>
+    </section>
+
+    <section id="tips" class="section tool-section">
+      <div class="section-heading"><span class="eyebrow">MODULE 04</span><h2>AI Financial Tips</h2><p>Step 1 uses a safe local demo response. Step 2 will connect this interface to Claude through a server-side API.</p></div>
+      <div class="single-tool glass">
+        <div class="input-row"><label>What do you want help with?<textarea id="tipQuestion" rows="3" placeholder="Example: How can I prepare financially before applying for a personal loan?"></textarea></label><button id="tipsBtn" class="btn btn-primary">Get AI Tip</button></div>
+        <div id="tipsResult" class="analysis-box ai-box"><span class="ai-badge">AI DEMO</span><p>Your answer will appear here.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>FinPilot AI</strong><span>Educational BFSI project</span></div>
+    <span>© 2026 Student Project • Estimates only, not financial advice.</span>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
